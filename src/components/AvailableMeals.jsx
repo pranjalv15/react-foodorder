@@ -26,7 +26,15 @@ function AvailableMeals() {
     fetchMeals();
   }, []);
 
-  return <Meals meals={availableMeals} />;
+  if (error) {
+    return <p className="center">Failed to fetch meal</p>;
+  }
+
+  let showContent = <Meals meals={availableMeals} />;
+  if (isFetching) {
+    showContent = <p className="center">Fetching Meals...</p>;
+  }
+  return showContent;
 }
 
 export default AvailableMeals;

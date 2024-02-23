@@ -4,6 +4,7 @@ const CartContext = createContext({
   items: [],
   addItem: () => {},
   removeItem: () => {},
+  clearCart: () => {},
 });
 
 export function CartContextProvider({ children }) {
@@ -49,10 +50,17 @@ export function CartContextProvider({ children }) {
     });
   }
 
+  function clearCart() {
+    setCart((prev) => {
+      return { ...prev, items: [] };
+    });
+  }
+
   const cartContext = {
     items: cart.items,
     addItem: addItem,
     removeItem: removeItem,
+    clearCart: clearCart,
   };
 
   console.log(cartContext);

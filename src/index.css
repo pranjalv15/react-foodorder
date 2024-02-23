@@ -9,7 +9,9 @@ body {
   font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(#29251c, #2c2306);
+  /* background: linear-gradient(#29251c, #2c2306); */
+  background-image: url(https://coreldrawdesign.com/resources/previews/preview-old-black-background.-grunge-texture.-dark-wallpaper.-blackboard,-chalkboard,-room-wall.-free-photo-1638192854.jpg);
+  background-size: cover;
   color: #d9e2f1;
   min-height: 100vh;
 }
@@ -21,7 +23,7 @@ body {
   padding: 3rem 10%;
 }
 
-#main-header #title {
+#title {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -32,7 +34,7 @@ body {
   height: 4rem;
   object-fit: contain;
   border-radius: 50%;
-  border: 2px solid #ffc404;
+  border: 2px solid #f6f5f1;
 }
 
 #main-header button {
@@ -45,7 +47,7 @@ h1 {
   font-weight: 700;
   font-size: 2rem;
   margin: 0;
-  color: #ffc404;
+  color: #f0eee9;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
@@ -109,12 +111,14 @@ h1 {
 
 .cart h2 {
   margin: 1rem 0;
+  color: #ccc;
 }
 
 .cart ul {
   list-style: none;
   margin: 0.5rem 0;
   padding: 0;
+  color: #ccc;
 }
 
 .modal-actions {
@@ -124,12 +128,12 @@ h1 {
 }
 
 .modal-actions .text-button {
-  color: #1d1a16;
+  color: #ccc;
 }
 
 .modal-actions .text-button:hover,
 .modal-actions .text-button:active {
-  color: #312c1d;
+  color: #fdfafa;
 }
 
 .cart-total {
@@ -138,7 +142,7 @@ h1 {
   margin: 2rem 0;
   font-size: 1.15rem;
   font-weight: bold;
-  color: #46443c;
+  color: #ccc;
 }
 
 .cart-item {
@@ -165,8 +169,8 @@ h1 {
   height: 1.5rem;
   border-radius: 50%;
   border: none;
-  background-color: #312c1d;
-  color: #ffc404;
+  background-color: #64625b;
+  color: #eae0c2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,11 +186,13 @@ h1 {
   margin: 0.5rem 0;
   display: flex;
   flex-direction: column;
+  color: #ccc;
 }
 
 .control label {
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: #ccc;
 }
 
 .control input {
@@ -195,7 +201,9 @@ h1 {
   font: inherit;
   padding: 0.5rem;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #424242;
+  background-color: #31302f;
+  color: #cecfcf;
 }
 
 .control-row {
@@ -226,7 +234,7 @@ h1 {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: #ffc404;
+  color: #edece8;
 }
 
 .text-button:hover,
@@ -235,7 +243,7 @@ h1 {
 }
 
 .modal {
-  background-color: #e4ddd4;
+  background-color: #31302f;
   border-radius: 6px;
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -243,6 +251,7 @@ h1 {
   width: 80%;
   max-width: 40rem;
   animation: fade-slide-up 0.3s ease-out forwards;
+  color: #ccc;
 }
 
 .modal::backdrop {

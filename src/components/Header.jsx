@@ -1,4 +1,4 @@
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo2.png";
 import CartContext from "../store/CartContext";
 import { useContext } from "react";
 import UserProgressContext from "../store/UserProgressContext";
@@ -17,7 +17,7 @@ function Header() {
     <header id="main-header">
       <div id="title">
         <img src={logo} alt="logo" />
-        <h1>REACTFOOD</h1>
+        <h1>FOOD APP</h1>
       </div>
       <nav>
         <button className="text-button" onClick={handleClick}>
