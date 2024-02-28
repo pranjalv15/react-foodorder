@@ -20,6 +20,9 @@ function Header() {
         <h1>FOOD APP</h1>
       </div>
       <nav>
+        <button className="text-button login-button">
+          Login
+        </button>
         <button className="text-button" onClick={handleClick}>
           Cart ({total})
         </button>

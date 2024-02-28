@@ -1,5 +1,6 @@
 import Meals from "./Meals";
 import { useState, useEffect } from "react";
+import axios from "axios";
 function AvailableMeals() {
   const [availableMeals, setAvailableMeals] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
@@ -10,10 +11,9 @@ function AvailableMeals() {
       setIsFetching(true);
 
       try {
-        const response = await fetch("http://localhost:3000/meals");
-        const resData = await response.json();
-
-        if (!response.ok) {
+        const response = await axios.get("http://localhost:3000/meals");
+        const resData = await response.data;
+        if (response.status != 200) {
           throw new Error("failed to fetch places");
         }
         setAvailableMeals(resData);

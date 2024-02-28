@@ -1,12 +1,18 @@
 const fs = require("fs/promises");
-
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const express = require("express");
-
+const mongoose = require("mongoose");
+const mealsModel = require("./models/meal");
 const app = express();
-
+app.use(cors());
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static("./public"));
+
+var mongoURL =
+  "mongodb+srv://vyaspranjal015:Password15@clusterfoodapp.ng7592r.mongodb.net/food-app-data";
+mongoose.connect(mongoURL);
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -16,9 +22,14 @@ app.use((req, res, next) => {
 });
 
 app.get("/meals", async (req, res) => {
-  const meals = await fs.readFile("./data/available-meals.json", "utf8");
-  res.status(200).json(JSON.parse(meals));
+  const meals = await mealsModel.find();
+  res.status(200).json(meals);
 });
+
+// app.get("/meals", async (req, res) => {
+//   const meals = await fs.readFile("./data/available-meals.json", "utf8");
+//   res.status(200).json(JSON.parse(meals));
+// });
 
 app.post("/orders", async (req, res) => {
   const orderData = req.body.order;
