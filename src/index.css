@@ -268,12 +268,118 @@ h1 {
   color: #ccc;
 }
 
+.att:hover {
+  color: #ffab04;
+}
+
+.register {
+  margin: auto;
+  margin-top: 200px;
+  align-items: center;
+  width: 50%;
+  text-align: center;
+  background-color: #31302f;
+}
+.register-header {
+  /* margin-top: 60px; */
+  padding-top: 5px;
+}
+
+.registration-form {
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+}
+.registration-form input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.register-button {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.lobt {
+  margin-bottom: 25px;
+}
 .login-button {
   margin-right: 20px;
 }
 
+.at {
+  text-decoration: none;
+}
+
+.register-text {
+  text-decoration: none;
+  color: #d9e2f1;
+  padding-top: 0px;
+  padding-bottom: 20px;
+}
+
+.alert {
+  color: red;
+}
+.order {
+  background-color: #151515;
+  margin: 20px;
+  padding: 10px;
+}
+
+.order-button {
+  margin-bottom: 20px;
+}
+
 .modal::backdrop {
   background-color: rgba(0, 0, 0, 0.55);
+}
+.dropbtn {
+  background-color: #ffc404;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: larger;
+  border-radius: 8px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #ffab04;
 }
 
 @keyframes fade-slide-up {

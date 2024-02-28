@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 
 const CartContext = createContext({
+  user: {},
   items: [],
   addItem: () => {},
   removeItem: () => {},
@@ -8,7 +9,15 @@ const CartContext = createContext({
 });
 
 export function CartContextProvider({ children }) {
-  const [cart, setCart] = useState({ items: [] });
+  const cartitems = localStorage.getItem("cartitems")
+    ? JSON.parse(localStorage.getItem("cartitems"))
+    : [];
+
+  const iniuser = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
+
+  const [cart, setCart] = useState({ items: cartitems, user: iniuser });
 
   function addItem(item) {
     setCart((prev) => {
@@ -26,6 +35,7 @@ export function CartContextProvider({ children }) {
       } else {
         updatedItems.push({ ...item, quantity: 1 });
       }
+      localStorage.setItem("cartitems", JSON.stringify(updatedItems));
       return { ...prev, items: updatedItems };
     });
   }
@@ -46,6 +56,7 @@ export function CartContextProvider({ children }) {
         };
         updatedItems[cartItemIndex] = updatedItem;
       }
+      localStorage.setItem("cartitems", JSON.stringify(updatedItems));
       return { ...prev, items: updatedItems };
     });
   }
@@ -54,13 +65,32 @@ export function CartContextProvider({ children }) {
     setCart((prev) => {
       return { ...prev, items: [] };
     });
+    localStorage.removeItem("cartitems");
+  }
+
+  function logginUser(us) {
+    setCart((prev) => {
+      localStorage.setItem("user", JSON.stringify(us));
+      return { ...prev, user: us };
+    });
+  }
+
+  function logout() {
+    setCart((prev) => {
+      localStorage.removeItem("user");
+      localStorage.removeItem("cartitems");
+      return { ...prev, items: [], user: null };
+    });
   }
 
   const cartContext = {
+    user: cart.user,
     items: cart.items,
     addItem: addItem,
     removeItem: removeItem,
     clearCart: clearCart,
+    logginUser: logginUser,
+    logout: logout,
   };
 
   console.log(cartContext);

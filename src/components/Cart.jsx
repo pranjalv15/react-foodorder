@@ -3,10 +3,11 @@ import CartContext from "../store/CartContext";
 import { useContext } from "react";
 import { currencyformatter } from "../util/formatting";
 import UserProgressContext from "../store/UserProgressContext";
+import Payment from "./Payment";
 
 export default function Cart() {
   const { items, addItem, removeItem } = useContext(CartContext);
-  const { progress, hideCart, showCheckout } = useContext(UserProgressContext);
+  const { progress, hideCart } = useContext(UserProgressContext);
   let totalPrice = 0;
   for (let i = 0; i < items.length; i++) {
     totalPrice += items[i].quantity * items[i].price;
@@ -21,9 +22,6 @@ export default function Cart() {
 
   function handleCloseCart() {
     hideCart();
-  }
-  function handleShowCheckout() {
-    showCheckout();
   }
   return (
     <Modal
@@ -49,16 +47,14 @@ export default function Cart() {
           );
         })}
       </ul>
-      <p className="cart-total">{currencyformatter.format(totalPrice)}</p>
+      <p className="cart-total">
+        Total Price: {currencyformatter.format(totalPrice)}
+      </p>
       <p className="modal-actions">
         <button className="text-button" onClick={handleCloseCart}>
           Close
         </button>
-        {items.length > 0 && (
-          <button className="button" onClick={handleShowCheckout}>
-            Go to Checkout
-          </button>
-        )}
+        {items.length > 0 && <Payment amount={totalPrice * 100} />}
       </p>
     </Modal>
   );

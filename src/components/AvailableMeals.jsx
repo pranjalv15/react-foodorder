@@ -13,7 +13,7 @@ function AvailableMeals() {
       try {
         const response = await axios.get("http://localhost:3000/meals");
         const resData = await response.data;
-        if (response.status != 200) {
+        if (response.status !== 200) {
           throw new Error("failed to fetch places");
         }
         setAvailableMeals(resData);
