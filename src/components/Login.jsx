@@ -54,7 +54,7 @@ function Login() {
       <form className="registration-form" onSubmit={handleLogin}>
         <input
           type="email"
-          placeholder="Name"
+          placeholder="Email"
           value={email}
           onChange={handleEmailChange}
         />

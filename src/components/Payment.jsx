@@ -8,6 +8,9 @@ import axios from "axios";
 export default function Payment({ amount }) {
   const { hideCart } = useContext(UserProgressContext);
   const { clearCart, user, items } = useContext(CartContext);
+  function handleAlert() {
+    alert("Please login to make payment");
+  }
   function handleFinish() {
     hideCart();
     clearCart();
@@ -26,16 +29,24 @@ export default function Payment({ amount }) {
     }
   }
   return (
-    <StripeCheckout
-      amount={amount}
-      token={handleToken}
-      stripeKey="pk_test_51OoqisSFhy76iYCdpa3OXrbYVAxhCIvDbBZvfXkZFXIHk6NhIM5yxect3bNMyBh0Qy6BifFye7kbj6TiVdcQ3hlj00s32sqvk6"
-      currency="INR"
-      shippingAddress
-    >
-      <button className="button" onClick={handleFinish}>
-        Pay Now
-      </button>
-    </StripeCheckout>
+    <div>
+      {user ? (
+        <StripeCheckout
+          amount={amount}
+          token={handleToken}
+          stripeKey="pk_test_51OoqisSFhy76iYCdpa3OXrbYVAxhCIvDbBZvfXkZFXIHk6NhIM5yxect3bNMyBh0Qy6BifFye7kbj6TiVdcQ3hlj00s32sqvk6"
+          currency="INR"
+          shippingAddress
+        >
+          <button className="button" onClick={handleFinish}>
+            Pay Now
+          </button>
+        </StripeCheckout>
+      ) : (
+        <button className="button" onClick={handleAlert}>
+          Pay Now
+        </button>
+      )}
+    </div>
   );
 }

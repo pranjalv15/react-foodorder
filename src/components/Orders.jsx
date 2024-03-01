@@ -38,8 +38,8 @@ export default function Orders() {
                     </p>
                   );
                 })}
-                <p>Price: {order.amount}</p>
-                <p>Date:{order.createdAt}</p>
+                <p>Price: {order.price}</p>
+                <p>Date:{order.date}</p>
               </div>
             );
           })}
